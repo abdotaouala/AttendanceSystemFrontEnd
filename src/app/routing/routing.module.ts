@@ -6,8 +6,8 @@ import {AttendanceSystemComponent} from '../attendance-system/attendance-system.
 import {Statistic4AttendanceSystemComponent} from '../statistic4-attendance-system/statistic4-attendance-system.component';
 const appRoute:Routes=[
   {path:'',component:LoginComponent},
-  {path:'/attendanceSystem',component:AttendanceSystemComponent},
-  {path:'/staticticAttendanceSystem',component:Statistic4AttendanceSystemComponent}
+  {path:'attendanceSystem',component:AttendanceSystemComponent},
+  {path:'staticticAttendanceSystem',component:Statistic4AttendanceSystemComponent}
 ]
 @NgModule({
   imports: [
