@@ -9,6 +9,7 @@ import { Statistic4AttendanceSystemComponent } from './statistic4-attendance-sys
 import {RoutingModule} from './routing/routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     BrowserModule,
-    RoutingModule
+    RoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  name:string;
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
+  onlogin(){
+    console.log(this.name)
+    this.router.navigate(['/attendanceSystem'])
+}
 }
