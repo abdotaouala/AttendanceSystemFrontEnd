@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     if(this.name=="taouala"){
       console.log(this.name)
       this.user.setIsLogin()
+      this.user.setName(this.name)
       this.router.navigate(['/attendanceSystem'])
     }else{
       this.error="Error : User "+this.name+" Not Found"

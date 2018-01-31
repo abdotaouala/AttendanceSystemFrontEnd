@@ -1,7 +1,7 @@
 
 
 export class User{
-  name:string;
+  private name:string;
   private isLogin:boolean
   constructor(){
     this.isLogin=false
@@ -11,5 +11,12 @@ export class User{
   }
   setIsLogin(){
     this.isLogin=true;
+  }
+
+  getName(){
+    return this.name
+  }
+  setName(name){
+    this.name=name;
   }
 }
