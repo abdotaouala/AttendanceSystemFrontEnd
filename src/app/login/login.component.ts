@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {User} from '../model/User';
 
 @Component({
   selector: 'app-login',
@@ -8,14 +9,21 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  name:string;
-  constructor(private router:Router) { }
+  name:string="";
+  error:string=""
+  constructor(private router:Router,private user:User) { }
 
   ngOnInit() {
   }
 
   onlogin(){
-    console.log(this.name)
-    this.router.navigate(['/attendanceSystem'])
-}
+    if(this.name=="taouala"){
+      console.log(this.name)
+      this.user.setIsLogin()
+      this.router.navigate(['/attendanceSystem'])
+    }else{
+      this.error="Error : User "+this.name+" Not Found"
+    }
+    }
+
 }

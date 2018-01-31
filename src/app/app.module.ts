@@ -11,6 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import {User} from './model/User';
+import {AuthGuard} from './auth.guard';
 
 
 @NgModule({
@@ -28,7 +30,7 @@ import { HomeComponent } from './home/home.component';
     RoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [User,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
