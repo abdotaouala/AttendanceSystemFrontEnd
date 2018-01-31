@@ -10,6 +10,7 @@ import {RoutingModule} from './routing/routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import {FormsModule} from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {FormsModule} from '@angular/forms';
     AttendanceSystemComponent,
     Statistic4AttendanceSystemComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
