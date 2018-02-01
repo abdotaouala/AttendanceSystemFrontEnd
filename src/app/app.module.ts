@@ -13,6 +13,9 @@ import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import {User} from './model/User';
 import {AuthGuard} from './auth.guard';
+import {AttendanceSystemService} from './attendance-system.service';
+import {Http, HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -28,9 +31,11 @@ import {AuthGuard} from './auth.guard';
   imports: [
     BrowserModule,
     RoutingModule,
-    FormsModule
+    FormsModule,
+    HttpModule,
+    HttpClientModule
   ],
-  providers: [User,AuthGuard],
+  providers: [User,AuthGuard,AttendanceSystemService,Http],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
