@@ -8,7 +8,7 @@ export class AttendanceSystemService {
   constructor(private http:Http) { }
 
   openCloseAttendance(val,user,type){
-    this.http.post("http:/localhost:8080/attendance/?id="+user+"&val="+val+"&type="+type,{})
+    this.http.post("http:/localhost:8080/attendance/?id="+user+"&val="+val+"&type="+type,{}).map(resp=>resp.json()).subscribe(resp=>console.log(resp))
   }
   login(name){
     return this.http.get("http://localhost:8080/searchUsers/?name="+name).map(resp=>resp.json())
