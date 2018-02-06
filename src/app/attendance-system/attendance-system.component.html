@@ -1,13 +1,10 @@
 
 Hello <strong>{{name}}</strong> ,<br>
 Click Here please :
-<div *ngIf="buttonColor=='yellow'">
-  <button class="btn btn-default btn-circle"  data-toggle="modal" data-target="#exampleModalLong"  [ngStyle]="{'background-color': buttonColor}"></button>
-</div>
-<div *ngIf="buttonColor=='black'">
-  <button class="btn btn-default btn-circle" [ngStyle]="{'background-color': buttonColor}" (click)="onAttendance()"></button>
-</div>
 
+  <button class="btn btn-default btn-circle"  [ngStyle]="{'background-color':buttonColor}" (click)="onAttendance()"   ></button>
+
+<button hidden="true" id="btnexampleModalLong" class="btn btn-default btn-circle"  data-toggle="modal" data-target="#exampleModalLong"  style="background-color: yellow"></button>
 
 
   <!-- Modal -->
@@ -22,14 +19,14 @@ Click Here please :
         </div>
         <div class="modal-body">
           <select class="form-control form-control-sm" [(ngModel)]="typeLeave">
-            <option value="1" selected="true">General</option>
+            <option value="1" selected>General</option>
             <option value="2">Doctor</option>
             <option value="3">Vacation</option>
           </select>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
-          <button type="button" class="btn btn-primary" (click)="onAttendance()" data-dismiss="modal"  >Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="oncancel()">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onValid()" >Save changes</button>
         </div>
       </div>
     </div>

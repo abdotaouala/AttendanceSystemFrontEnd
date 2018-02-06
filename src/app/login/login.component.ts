@@ -10,8 +10,9 @@ import {AttendanceSystemService} from '../attendance-system.service';
 })
 export class LoginComponent implements OnInit {
 
-  name:string="";
-  error:string=""
+  name:string;
+  error:string="";
+  usr:any;
   constructor(private router:Router,private user:User,private attendanceSystem:AttendanceSystemService) { }
 
   ngOnInit() {
@@ -19,17 +20,20 @@ export class LoginComponent implements OnInit {
 
   onlogin(){
     console.log("*****************************")
+    console.log(this.name)
     this.attendanceSystem.login(this.name).subscribe(resp=>{
-      console.log(resp.content)
+
+        if(resp.content[0]){
+        this.user.setIsLogin()
+        this.user.setName(this.name)
+          this.user.setId(resp.content[0].id)
+        this.router.navigate(['/attendanceSystem'])
+      }else{
+        this.error="Error : User "+this.name+" Not Found"
+      }
     })
-    if(this.name=="taouala"){
-      console.log(this.name)
-      this.user.setIsLogin()
-      this.user.setName(this.name)
-      this.router.navigate(['/attendanceSystem'])
-    }else{
-      this.error="Error : User "+this.name+" Not Found"
-    }
+
+
     }
 
 }

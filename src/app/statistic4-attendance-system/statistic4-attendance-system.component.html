@@ -1,30 +1,58 @@
 <table class="table">
   <thead>
   <tr>
-    <th scope="col">#</th>
-    <th scope="col">First</th>
-    <th scope="col">Last</th>
-    <th scope="col">Handle</th>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Mark</td>
-    <td>Otto</td>
-    <td>@mdo</td>
+  <tr *ngFor="let u of users">
+    <th scope="row">{{u.id}}</th>
+    <td><a href="#" data-toggle="modal" data-target="#exampleModalLong" (click)="onDetailsUers(u.name)">{{u.name}}</a></td>
   </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Jacob</td>
-    <td>Thornton</td>
-    <td>@fat</td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Larry</td>
-    <td>the Bird</td>
-    <td>@twitter</td>
-  </tr>
+
   </tbody>
 </table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Attendance System : User Infos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Date</th>
+            <th scope="col">Type</th>
+            <th scope="col">Direct</th>
+          </tr>
+          </thead>
+          <tbody>
+         <tr *ngFor="let d of detailsUser?.content">
+           <td >{{d.rid}}</td>
+           <td >{{d.time | date}}</td>
+           <td *ngIf="d.type==1">General</td>
+           <td *ngIf="d.type==2">Doctor</td>
+           <td *ngIf="d.type==2">Vacation</td>
+           <td *ngIf="d.direct==1">true</td>
+           <td *ngIf="d.direct==2">false</td>
+         </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>

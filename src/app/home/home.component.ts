@@ -16,6 +16,6 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/staticticAttendanceSystem'])
   }
   onAttendanceSys(){
-    this.router.navigate(['/'])
+    this.router.navigate(['/login'])
   }
 }

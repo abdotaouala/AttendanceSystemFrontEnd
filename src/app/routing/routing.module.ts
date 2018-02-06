@@ -7,8 +7,8 @@ import {Statistic4AttendanceSystemComponent} from '../statistic4-attendance-syst
 import {HomeComponent} from '../home/home.component';
 import {AuthGuard} from '../auth.guard';
 const appRoute:Routes=[
-  {path:'home',component:HomeComponent},
-  {path:'',component:LoginComponent},
+  {path:'',component:HomeComponent},
+  {path:'login',component:LoginComponent},
   {path:'attendanceSystem',canActivate:[AuthGuard],component:AttendanceSystemComponent},
   {path:'staticticAttendanceSystem',component:Statistic4AttendanceSystemComponent}
 ]

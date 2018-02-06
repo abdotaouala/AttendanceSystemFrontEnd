@@ -2,6 +2,7 @@
 
 export class User{
   private name:string;
+  private id;
   private isLogin:boolean
   constructor(){
     this.isLogin=false
@@ -18,5 +19,12 @@ export class User{
   }
   setName(name){
     this.name=name;
+  }
+
+  getId(){
+    return this.id
+  }
+  setId(id){
+    this.id=id;
   }
 }

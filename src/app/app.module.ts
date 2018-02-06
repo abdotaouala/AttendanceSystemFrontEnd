@@ -14,10 +14,10 @@ import { HomeComponent } from './home/home.component';
 import {User} from './model/User';
 import {AuthGuard} from './auth.guard';
 import {AttendanceSystemService} from './attendance-system.service';
-import {Http, HttpModule} from '@angular/http';
-import {HttpClientModule} from '@angular/common/http';
-
-
+import {StatisticAttehdanceSystemService} from './statistic-attehdance-system.service';
+import {Http} from "@angular/http";
+import { HttpModule } from '@angular/http';
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,10 +32,9 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     RoutingModule,
     FormsModule,
-    HttpModule,
-    HttpClientModule
+    HttpModule
   ],
-  providers: [User,AuthGuard,AttendanceSystemService,Http],
+  providers: [User,AuthGuard,AttendanceSystemService,StatisticAttehdanceSystemService, AppModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../model/User';
 import {AttendanceSystemService} from '../attendance-system.service';
+import {Router} from "@angular/router";
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-attendance-system',
@@ -8,28 +10,35 @@ import {AttendanceSystemService} from '../attendance-system.service';
   styleUrls: ['./attendance-system.component.css']
 })
 export class AttendanceSystemComponent implements OnInit {
-  buttonColor:string="black"
+  buttonColor:string='black';
   name:string;
+  id;
   typeLeave:number;
-  constructor(private user:User,private attendanceSystemService:AttendanceSystemService) {
+  constructor(private user:User,private attendanceSystemService:AttendanceSystemService,private router:Router) {
     this.name=user.getName()
+    this.id=user.getId()
   }
 
   ngOnInit() {
   }
   onAttendance(){
 
-    console.log(this.typeLeave)
-    console.log("changeColor")
     //1
-    if(this.buttonColor=="yellow"){
-      let a:number=1;
-      this.attendanceSystemService.openCloseAttendance(a,this.name)
-      this.buttonColor="black"
+    if(this.buttonColor=='yellow'){
+      document.getElementById("btnexampleModalLong").click();
     }
     //2
-    else
-      this.attendanceSystemService.openCloseAttendance(1,this.name)
-      this.buttonColor="yellow"
+    else if(this.buttonColor=='black'){
+      this.attendanceSystemService.openCloseAttendance(2,this.id,0);
+      this.buttonColor='yellow';
+    }
+  }
+  oncancel(){
+    this.buttonColor='yellow';
+  }
+  onValid(){
+    this.attendanceSystemService.openCloseAttendance(1,this.id,this.typeLeave);
+    this.buttonColor='black';
+
   }
 }
